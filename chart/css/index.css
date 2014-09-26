@@ -1,0 +1,12 @@
+@import url(lib/nv-d3-1.1.15b.css);
+
+html, body {
+	height: 100%;
+}
+
+svg {
+	width: 960px;
+	height: 400px;
+	margin-left: auto;
+	margin-right: auto;
+}

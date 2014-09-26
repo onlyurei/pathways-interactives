@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8" />
+    <title>Pathways Charting</title>
+    <link rel="stylesheet" href="css/index.css" />
+</head>
+<body>
+<script src="js/lib/require/require.js"></script>
+<script>
+    (function () {
+        require.config({
+            baseUrl: 'js'
+        });
+
+        require(['common'], function () {
+            require(['App']);
+        });
+    })();
+</script>
+</body>
+</html>
