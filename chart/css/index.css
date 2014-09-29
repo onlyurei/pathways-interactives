@@ -1,9 +1,12 @@
+@import url(lib/bootstrap-3.2.0.css);
 @import url(lib/nv-d3-1.1.15b.css);
 
 html, body {
 	height: 100%;
+	padding: 20px;
 }
 
+.table,
 svg {
 	width: 960px;
 	height: 400px;

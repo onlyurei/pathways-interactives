@@ -6,6 +6,22 @@
     <link rel="stylesheet" href="css/index.css" />
 </head>
 <body>
+<table class="table table-bordered">
+    <thead>
+        <tr data-bind="foreach: theads">
+            <th><span data-bind="text: key"></span>
+                <!-- ko if: $data.axisLabel -->
+                (in <span data-bind="text: axisLabel.pluralize()"></span>)
+                <!-- /ko -->
+            </th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach: tbodies">
+        <tr data-bind="foreach: $data">
+            <td data-bind="text: $data"></td>
+        </tr>
+    </tbody>
+</table>
 <script src="js/lib/require/require.js"></script>
 <script>
     (function () {

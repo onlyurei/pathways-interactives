@@ -1,4 +1,26 @@
-define(['json!data/earth-sun.json', 'nv', 'd3', 'Sugar'], function (data, nv, d3) {
+define(['json!data/earth-sun.json', 'nv', 'd3', 'knockout', 'sugar'], function (data, nv, d3, ko) {
+
+    var table = {
+        theads: [{ key: data[0].xAxis.axisLabel }].add(data.map(function (datum) {
+            return datum.datum.map(function (_datum) {
+                return {
+                    key: _datum.key,
+                    axisLabel: datum.yAxis.axisLabel
+                };
+            });
+        }).flatten()),
+        tbodies: []
+    };
+
+    var tbodies = data.map(function (datum) {
+        return datum.datum.map(function (_datum) {
+            return _datum.values.map('y');
+        })
+    }).flatten().inGroupsOf(data[0].datum[0].values.length);
+
+    table.tbodies = Array.prototype.zip.apply(data[0].datum[0].values.map('x'), tbodies);
+
+    ko.applyBindings(table);
 
     data.each(function (datum, index) {
 
