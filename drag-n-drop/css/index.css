@@ -1,0 +1,53 @@
+@import url(lib/jquery-ui-1.11.1.css);
+
+.content {
+	width: 960px;
+	margin: 0 auto;
+}
+
+ul {
+	list-style-type: none;
+	-webkit-padding-start: 0;
+}
+
+li {
+	margin: 0;
+	padding: 0;
+}
+
+.earths,
+.orbit {
+	display: inline-block;
+	position: relative;
+}
+
+.earths {
+	z-index: 1;
+}
+
+.orbit .position {
+	position: absolute;
+	background-color: #FFF;
+	width: 100px;
+	height: 110px;
+}
+
+.orbit .position-1 {
+	left: 330px;
+	top: 105px;
+}
+
+.orbit .position-2 {
+	left: 620px;
+	top: 245px;
+}
+
+.orbit .position-3 {
+	left: 330px;
+	top: 390px;
+}
+
+.orbit .position-4 {
+	left: 45px;
+	top: 245px;
+}

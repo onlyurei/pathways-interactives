@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8" />
+    <title>Pathways Drag and Drop</title>
+    <link rel="stylesheet" href="css/index.css" />
+</head>
+<body>
+<div class="content content-1">
+    <h1>
+        Place each image of the Earth into the correct position in its orbit around the Sun.
+    </h1>
+    <ul class="earths">
+        <li>
+            <img data-id="2" src="img/Jun21.png" />
+        </li>
+        <li>
+            <img data-id="1" src="img/Sept19.png" />
+        </li>
+        <li>
+            <img data-id="3" src="img/Mar21.png" />
+        </li>
+        <li>
+            <img data-id="4" src="img/Dec20.png" />
+        </li>
+    </ul>
+    <div class="orbit">
+        <div data-id="1" class="position position-1"></div>
+        <div data-id="2" class="position position-2"></div>
+        <div data-id="3" class="position position-3"></div>
+        <div data-id="4" class="position position-4"></div>
+        <img src="img/SeasonsBackground.png" />
+    </div>
+    <button class="submit">Submit</button>
+    <div class="feedback"></div>
+</div>
+<script src="js/lib/jquery-2.1.1.js"></script>
+<script src="js/lib/jquery-ui-1.11.1.js"></script>
+<script>
+    (function () {
+        var mapping = {};
+
+        function correct() {
+            var _correct = true;
+            var count = 0;
+            for (var i in mapping) {
+                if (mapping.hasOwnProperty(i)) {
+                    count++;
+                    if (i != mapping[i]) {
+                        _correct = false;
+                        break;
+                    }
+                }
+            }
+            return (count == 4) && _correct;
+        }
+
+        $('.content-1 .earths li img').draggable({
+            snap: '.content-1 .orbit .position',
+            snapMode: 'inner'
+        });
+
+        $('.content-1 .orbit .position').droppable({
+            accept: '.content-1 .earths li img',
+            drop: function (event, ui) {
+                mapping[$(this).data('id')] = $(ui.draggable).data('id');
+            },
+            out: function () {
+                mapping[$(this).data('id')] = null;
+            }
+        });
+
+        $('.content-1 .submit').click(function () {
+            $('.content-1 .feedback').text(correct() ? 'CORRECT' : 'INCORRECT');
+        });
+    })();
+</script>
+</body>
+</html>
