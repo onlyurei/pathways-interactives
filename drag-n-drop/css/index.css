@@ -15,39 +15,82 @@ li {
 	padding: 0;
 }
 
-.earths,
-.orbit {
+.result {
+	text-align: center;
+}
+
+.result .feedback {
+	margin: 15px 0;
+}
+
+.content-1 .earths,
+.content-1 .orbit {
 	display: inline-block;
 	position: relative;
 }
 
-.earths {
+.content-1 .earths {
 	z-index: 1;
 }
 
-.orbit .position {
+.content-1 .orbit .position {
 	position: absolute;
 	background-color: #FFF;
 	width: 100px;
 	height: 110px;
 }
 
-.orbit .position-1 {
+.content-1 .orbit .position-1 {
 	left: 330px;
 	top: 105px;
 }
 
-.orbit .position-2 {
+.content-1 .orbit .position-2 {
 	left: 620px;
 	top: 245px;
 }
 
-.orbit .position-3 {
+.content-1 .orbit .position-3 {
 	left: 330px;
 	top: 390px;
 }
 
-.orbit .position-4 {
+.content-1 .orbit .position-4 {
 	left: 45px;
 	top: 245px;
+}
+
+.content-2 .ideas,
+.content-2 .categories,
+.content-2 .categories .category {
+	display: inline-block;
+	vertical-align: top;
+	text-align: center;
+}
+
+.content-2 .ideas {
+	width: 20%;
+}
+
+.content-2 .ideas li {
+	border-radius: 8px;
+	border-left: 4px solid #8BB04D;
+	border-right: 4px solid #8BB04D;
+	margin: 20px 0;
+	padding: 10px;
+}
+
+.content-2 .categories {
+	width: 79%;
+}
+
+.content-2 .categories .category {
+	width: 49%;
+}
+
+.content-2 .categories .category-area {
+	border-radius: 20px;
+	border: 4px solid #000;
+	height: 610px;
+	margin: 0 20px;
 }
