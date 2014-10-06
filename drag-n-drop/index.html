@@ -76,7 +76,7 @@
     })();
 </script>
 <hr />
-<div class="content content-2">
+<div class="content content-2 content-sort">
     <h1>Determine which ideas about the causes of the seasons are correct. Sort the list by category.</h1>
     <div class="ideas">
         <h3>Ideas</h3>
@@ -139,6 +139,146 @@
 
         $('.content-2 .submit').click(function () {
             $('.content-2 .submit').text(correct() ? 'CORRECT (click again to resubmit)' : 'INCORRECT (click again to resubmit)');
+        });
+    })();
+</script>
+<hr />
+<div class="content content-3 content-sort content-sort-no-border">
+    <h1>Classify the following organisms as producers or not producers.</h1>
+    <div class="ideas">
+        <h3>Organisms</h3>
+        <ul>
+            <li data-id="1" data-correct="true"><img src="img/acorn.png" /></li>
+            <li data-id="2" data-correct="true"><img src="img/cyanobacteria.png" /></li>
+            <li data-id="3" data-correct="false"><img src="img/garden-eel.png" /></li>
+            <li data-id="4" data-correct="true"><img src="img/golden-algae.png" /></li>
+            <li data-id="5" data-correct="false"><img src="img/grasshopper.png" /></li>
+            <li data-id="6" data-correct="false"><img src="img/krill.png" /></li>
+            <li data-id="7" data-correct="false"><img src="img/mushroom.png" /></li>
+            <li data-id="8" data-correct="true"><img src="img/phytoplankton.png" /></li>
+            <li data-id="9" data-correct="true"><img src="img/rose.png" /></li>
+            <li data-id="10" data-correct="false"><img src="img/sea-star.png" /></li>
+            <li data-id="11" data-correct="true"><img src="img/seaweed.png" /></li>
+            <li data-id="12" data-correct="false"><img src="img/slime-mold.png" /></li>
+        </ul>
+    </div>
+    <div class="categories">
+        <div class="category correct-ideas">
+            <h3>Producers</h3>
+            <div data-correct="true" class="category-area correct-ideas-area"></div>
+        </div>
+        <div class="category incorrect-ideas">
+            <h3>Not Producers</h3>
+            <div data-correct="false" class="category-area incorrect-ideas-area"></div>
+        </div>
+    </div>
+    <div class="result">
+        <button class="submit">Submit</button>
+    </div>
+</div>
+<script>
+    (function () {
+        var mapping = {};
+
+        function correct() {
+            var _correct = true;
+            var count = 0;
+            for (var i in mapping) {
+                if (mapping.hasOwnProperty(i)) {
+                    count++;
+                    if (!mapping[i]) {
+                        _correct = false;
+                        break;
+                    }
+                }
+            }
+            return (count == 12) && _correct;
+        }
+
+        $('.content-3 .ideas li').draggable({
+            snap: '.content-3 .category-area',
+            snapMode: 'inner'
+        });
+
+        $('.content-3 .category-area').droppable({
+            accept: '.content-3 .ideas li',
+            drop: function (event, ui) {
+                mapping[$(ui.draggable).data('id')] = ($(this).data('correct') == $(ui.draggable).data('correct'));
+            },
+            out: function (event, ui) {
+                delete mapping[$(ui.draggable).data('id')];
+            }
+        });
+
+        $('.content-3 .submit').click(function () {
+            $('.content-3 .submit').text(correct() ? 'CORRECT (click again to resubmit)' : 'INCORRECT (click again to resubmit)');
+        });
+    })();
+</script>
+<hr />
+<div class="content content-4 content-sort">
+    <h1>Determine which ideas about food chains and food webs are correct. Sort the list by category.</h1>
+    <div class="ideas">
+        <h3>Ideas</h3>
+        <ul>
+            <li data-id="1" data-correct="true">Food chains usually contain five or fewer levels.</li>
+            <li data-id="2" data-correct="false">Food webs are complex because they have many more levels than food chains.</li>
+            <li data-id="3" data-correct="false">Large organisms always eat smaller organisms.</li>
+            <li data-id="4" data-correct="true">A producer is always the first level in a food chain or web.</li>
+            <li data-id="5" data-correct="false">Most food in the sea is made by plants.</li>
+            <li data-id="6" data-correct="false">Food chains are composed only of predators.</li>
+        </ul>
+    </div>
+    <div class="categories">
+        <div class="category correct-ideas">
+            <h3>Correct Ideas</h3>
+            <div data-correct="true" class="category-area correct-ideas-area"></div>
+        </div>
+        <div class="category incorrect-ideas">
+            <h3>Incorrect Ideas</h3>
+            <div data-correct="false" class="category-area incorrect-ideas-area"></div>
+        </div>
+    </div>
+    <div class="result">
+        <button class="submit">Submit</button>
+    </div>
+</div>
+<script>
+    (function () {
+        var mapping = {};
+
+        function correct() {
+            var _correct = true;
+            var count = 0;
+            for (var i in mapping) {
+                if (mapping.hasOwnProperty(i)) {
+                    count++;
+                    if (!mapping[i]) {
+                        _correct = false;
+                        break;
+                    }
+                }
+            }
+            return (count == 6) && _correct;
+        }
+
+        $('.content-4 .ideas li').draggable({
+            snap: '.content-4 .category-area',
+            snapMode: 'inner'
+        });
+
+        $('.content-4 .category-area').droppable({
+            accept: '.content-4 .ideas li',
+            drop: function (event, ui) {
+                mapping[$(ui.draggable).data('id')] = ($(this).data('correct') == $(ui.draggable).data('correct'));
+            },
+            out: function (event, ui) {
+                delete mapping[$(ui.draggable).data('id')];
+            }
+        });
+
+        $('.content-4 .submit').click(function () {
+            $('.content-4 .submit').text(correct() ? 'CORRECT (click again to resubmit)' : 'INCORRECT (click again to resubmit)');
         });
     })();
 </script>
