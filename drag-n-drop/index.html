@@ -34,6 +34,7 @@
     </div>
     <div class="result">
         <button class="submit">Submit</button>
+        <a href="img/SeasonsCorrect.png" target="_blank" class="correct-answer">See correct answer.</a>
     </div>
 </div>
 <script>
@@ -70,8 +71,16 @@
             }
         });
 
+        $('.content-1 .correct-answer').hide();
+
         $('.content-1 .submit').click(function () {
-            $('.content-1 .submit').text(correct() ? 'CORRECT (click again to resubmit)' : 'INCORRECT (click again to resubmit)');
+            var _correct = correct();
+            $('.content-1 .submit').text(_correct ? 'CORRECT' : 'INCORRECT (click again to resubmit)');
+            if (!_correct) {
+                $('.content-1 .correct-answer').show();
+            } else {
+                $('.content-1 .correct-answer').hide();
+            }
         });
     })();
 </script>
@@ -101,6 +110,7 @@
     </div>
     <div class="result">
         <button class="submit">Submit</button>
+        <a href="img/SeasonsClassifyCorrect.png" target="_blank" class="correct-answer">See correct answer.</a>
     </div>
 </div>
 <script>
@@ -137,8 +147,16 @@
             }
         });
 
+        $('.content-2 .correct-answer').hide();
+
         $('.content-2 .submit').click(function () {
-            $('.content-2 .submit').text(correct() ? 'CORRECT (click again to resubmit)' : 'INCORRECT (click again to resubmit)');
+            var _correct = correct();
+            $('.content-2 .submit').text(_correct ? 'CORRECT' : 'INCORRECT (click again to resubmit)');
+            if (!_correct) {
+                $('.content-2 .correct-answer').show();
+            } else {
+                $('.content-2 .correct-answer').hide();
+            }
         });
     })();
 </script>
@@ -153,13 +171,11 @@
             <li data-id="3" data-correct="false"><img src="img/garden-eel.png" /></li>
             <li data-id="4" data-correct="true"><img src="img/golden-algae.png" /></li>
             <li data-id="5" data-correct="false"><img src="img/grasshopper.png" /></li>
-            <li data-id="6" data-correct="false"><img src="img/krill.png" /></li>
-            <li data-id="7" data-correct="false"><img src="img/mushroom.png" /></li>
-            <li data-id="8" data-correct="true"><img src="img/phytoplankton.png" /></li>
-            <li data-id="9" data-correct="true"><img src="img/rose.png" /></li>
-            <li data-id="10" data-correct="false"><img src="img/sea-star.png" /></li>
-            <li data-id="11" data-correct="true"><img src="img/seaweed.png" /></li>
-            <li data-id="12" data-correct="false"><img src="img/slime-mold.png" /></li>
+            <li data-id="6" data-correct="false"><img src="img/mushroom.png" /></li>
+            <li data-id="7" data-correct="true"><img src="img/phytoplankton.png" /></li>
+            <li data-id="8" data-correct="true"><img src="img/rose.png" /></li>
+            <li data-id="9" data-correct="false"><img src="img/sea-star.png" /></li>
+            <li data-id="10" data-correct="false"><img src="img/slime-mold.png" /></li>
         </ul>
     </div>
     <div class="categories">
@@ -174,6 +190,7 @@
     </div>
     <div class="result">
         <button class="submit">Submit</button>
+        <a href="img/BioClassifyCorrect.PNG" target="_blank" class="correct-answer">See correct answer.</a>
     </div>
 </div>
 <script>
@@ -192,7 +209,7 @@
                     }
                 }
             }
-            return (count == 12) && _correct;
+            return (count == 10) && _correct;
         }
 
         $('.content-3 .ideas li').draggable({
@@ -210,8 +227,16 @@
             }
         });
 
+        $('.content-3 .correct-answer').hide();
+
         $('.content-3 .submit').click(function () {
-            $('.content-3 .submit').text(correct() ? 'CORRECT (click again to resubmit)' : 'INCORRECT (click again to resubmit)');
+            var _correct = correct();
+            $('.content-3 .submit').text(_correct ? 'CORRECT' : 'INCORRECT (click again to resubmit)');
+            if (!_correct) {
+                $('.content-3 .correct-answer').show();
+            } else {
+                $('.content-3 .correct-answer').hide();
+            }
         });
     })();
 </script>
@@ -241,6 +266,7 @@
     </div>
     <div class="result">
         <button class="submit">Submit</button>
+        <a href="img/FoodWebClassifyCorrect.png" target="_blank" class="correct-answer">See correct answer.</a>
     </div>
 </div>
 <script>
@@ -277,8 +303,16 @@
             }
         });
 
+        $('.content-4 .correct-answer').hide();
+
         $('.content-4 .submit').click(function () {
-            $('.content-4 .submit').text(correct() ? 'CORRECT (click again to resubmit)' : 'INCORRECT (click again to resubmit)');
+            var _correct = correct();
+            $('.content-4 .submit').text(_correct ? 'CORRECT' : 'INCORRECT (click again to resubmit)');
+            if (!_correct) {
+                $('.content-4 .correct-answer').show();
+            } else {
+                $('.content-4 .correct-answer').hide();
+            }
         });
     })();
 </script>
