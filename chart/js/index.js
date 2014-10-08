@@ -18,7 +18,7 @@ define(['json!data/earth-sun.json', 'nv', 'd3', 'knockout', 'sugar'], function (
         })
     }).flatten().inGroupsOf(data[0].datum[0].values.length);
 
-    table.tbodies = Array.prototype.zip.apply(data[0].datum[0].values.map(function (value) { return value.xLabel || value.x; }), tbodies);
+    table.tbodies = Array.prototype.zip.apply(data[0].datum[0].values.map('x'), tbodies);
 
     var charts = data.map(function (datum) {
         return datum.name;
