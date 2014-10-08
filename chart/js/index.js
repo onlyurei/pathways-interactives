@@ -18,22 +18,35 @@ define(['json!data/earth-sun.json', 'nv', 'd3', 'knockout', 'sugar'], function (
         })
     }).flatten().inGroupsOf(data[0].datum[0].values.length);
 
-    table.tbodies = Array.prototype.zip.apply(data[0].datum[0].values.map('x'), tbodies);
+    table.tbodies = Array.prototype.zip.apply(data[0].datum[0].values.map(function (value) { return value.xLabel || value.x; }), tbodies);
 
-    ko.applyBindings(table);
+    var charts = data.map(function (datum) {
+        return datum.name;
+    });
+
+    var viewModel = {
+        table: table,
+        charts : charts,
+        chart: ko.observable(charts[0])
+    };
 
     data.each(function (datum, index) {
+
+        var div = document.createElement('div');
+        div.dataset.name = datum.name;
+        div.dataset.bind = "visible: chart() == '" + datum.name + "'";
 
         var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
         svg.id = 'svg' + index;
 
-        document.body.appendChild(svg);
+        div.appendChild(svg);
+        document.body.appendChild(div);
 
         nv.addGraph(function () {
             var chart = nv.models.lineChart()
-                    .showLegend(true)
                     .useInteractiveGuideline(true)
                     .margin({ left: 75 })
+                    .color(['#02558f', '#fd7700', '#df02f9'])
                 ;
 
             if (datum.forceY) {
@@ -59,11 +72,13 @@ define(['json!data/earth-sun.json', 'nv', 'd3', 'knockout', 'sugar'], function (
                 .transition().duration(500).call(chart)
             ;
 
-            nv.utils.windowResize(chart.update);
-
             return chart;
         });
 
     });
+
+    setTimeout(function () {
+        ko.applyBindings(viewModel);
+    }, 100);
 });
 

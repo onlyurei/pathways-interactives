@@ -6,22 +6,29 @@
     <link rel="stylesheet" href="css/index.css" />
 </head>
 <body>
+<p>
+    The table below contains data relating the position of the Sun and Earth relative to one another throughout the year.  All measurements were collected on the 20th day of each month.  Use the dropdown menu to see this data plotted in three different graphs.  Examine the data and graphs to look for any relationships that might explain the cause of the Earth’s seasons.
+</p>
+<p>
+    What relationships do you see that support or contradict the idea you selected to explain the cause of the Earth’s seasons?
+</p>
 <table class="table table-bordered">
     <thead>
-        <tr data-bind="foreach: theads">
+        <tr data-bind="foreach: table.theads">
             <th><span data-bind="text: key"></span>
                 <!-- ko if: $data.axisLabel -->
-                (in <span data-bind="text: axisLabel.pluralize()"></span>)
+                (in <span data-bind="text: axisLabel.toLowerCase()"></span>)
                 <!-- /ko -->
             </th>
         </tr>
     </thead>
-    <tbody data-bind="foreach: tbodies">
+    <tbody data-bind="foreach: table.tbodies">
         <tr data-bind="foreach: $data">
-            <td data-bind="text: $data"></td>
+            <td data-bind="text: ((typeof $data == 'number') && $index()) ? $data.toFixed(1) : $data"></td>
         </tr>
     </tbody>
 </table>
+<select data-bind="options: charts, value: chart"></select>
 <script src="js/lib/require/require.js"></script>
 <script>
     (function () {

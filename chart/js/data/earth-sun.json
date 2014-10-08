@@ -1,17 +1,18 @@
 [
     {
+        "name": "Monthly Tilt of the Earth’s Axis",
         "xAxis": {
             "axisLabel": "Month",
             "tickFormat": "d"
         },
         "yAxis": {
-            "axisLabel": "Degree",
+            "axisLabel": "Degrees",
             "tickFormat": ".01f"
         },
         "forceY": [0, 90],
         "datum": [
             {
-                "key": "Tilt of Earth's Axis",
+                "key": "Tilt of the Earth's Axis",
                 "values": [
                     {
                         "x": 1,
@@ -66,18 +67,19 @@
         ]
     },
     {
+        "name": "Monthly Distance Between the Earth and the Sun",
         "xAxis": {
             "axisLabel": "Month",
             "tickFormat": "d"
         },
         "yAxis": {
-            "axisLabel": "Millions of KM",
+            "axisLabel": "Millions of km",
             "tickFormat": ".01f"
         },
         "forceY": [0, 160],
         "datum": [
             {
-                "key": "Earth's Distance from Sun",
+                "key": "Earth's Distance from the Sun",
                 "values": [
                     {
                         "x": 1,
@@ -132,18 +134,19 @@
         ]
     },
     {
+        "name": "Monthly Altitude of the Sun by Earth Latitude",
         "xAxis": {
             "axisLabel": "Month",
             "tickFormat": "d"
         },
         "yAxis": {
-            "axisLabel": "Degree",
+            "axisLabel": "Degrees",
             "tickFormat": ".01f"
         },
         "forceY": [0, 90],
         "datum": [
             {
-                "key": "Sun's Altitude at Tropic of Cancer",
+                "key": "Sun's Altitude at the Tropic of Cancer",
                 "values": [
                     {
                         "x": 1,
@@ -249,7 +252,7 @@
                 ]
             },
             {
-                "key": "Sun's Altitude at Tropic of Capricorn",
+                "key": "Sun's Altitude at the Tropic of Capricorn",
                 "values": [
                     {
                         "x": 1,

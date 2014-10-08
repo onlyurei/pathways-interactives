@@ -3,13 +3,21 @@
 
 html, body {
 	height: 100%;
-	padding: 20px;
-}
-
-.table,
-svg {
-	width: 960px;
-	height: 400px;
+	width: 925px;
 	margin-left: auto;
 	margin-right: auto;
+	padding: 10px 0;
+}
+
+svg {
+	height: 350px;
+}
+
+.table > thead > tr > th,
+.table > tbody > tr > th,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > td,
+.table > tfoot > tr > td {
+	padding: 3px;
 }
