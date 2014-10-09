@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8" />
+    <title>Britannica Pathways: Science - New Ideas - Drag and Drop</title>
+    <link rel="stylesheet" href="css/index.css" />
+    <script src="js/lib/jquery-2.1.1.js"></script>
+    <script src="js/lib/jquery-ui-1.11.1.js"></script>
+    <script src="js/lib/jquery-ui-touch-punch-0.2.3.js"></script>
+</head>
+<body>
+<div class="content content-1">
+    <h1>Place each image of the Earth into the correct position in its orbit around the Sun.</h1>
+    <ul class="earths">
+        <li>
+            <img data-id="2" src="img/jun-21.png" />
+        </li>
+        <li>
+            <img data-id="1" src="img/sep-19.png" />
+        </li>
+        <li>
+            <img data-id="3" src="img/mar-21.png" />
+        </li>
+        <li>
+            <img data-id="4" src="img/dec-20.png" />
+        </li>
+    </ul>
+    <div class="orbit">
+        <div data-id="1" class="position position-1"></div>
+        <div data-id="2" class="position position-2"></div>
+        <div data-id="3" class="position position-3"></div>
+        <div data-id="4" class="position position-4"></div>
+        <img src="img/seasons-background.png" />
+    </div>
+    <div class="result">
+        <button class="submit">Submit</button>
+        <a href="img/seasons-correct.png" target="_blank" class="correct-answer">See correct answer.</a>
+    </div>
+</div>
+<script>
+    (function () {
+        var mapping = {};
+
+        function correct() {
+            var _correct = true;
+            var count = 0;
+            for (var i in mapping) {
+                if (mapping.hasOwnProperty(i)) {
+                    count++;
+                    if (i != mapping[i]) {
+                        _correct = false;
+                        break;
+                    }
+                }
+            }
+            return (count == 4) && _correct;
+        }
+
+        $('.content-1 .earths li img').draggable({
+            snap: '.content-1 .orbit .position',
+            snapMode: 'inner'
+        });
+
+        $('.content-1 .orbit .position').droppable({
+            accept: '.content-1 .earths li img',
+            drop: function (event, ui) {
+                mapping[$(this).data('id')] = $(ui.draggable).data('id');
+            },
+            out: function () {
+                delete mapping[$(this).data('id')];
+            }
+        });
+
+        $('.content-1 .correct-answer').hide();
+
+        $('.content-1 .submit').click(function () {
+            var _correct = correct();
+            $('.content-1 .submit').text(_correct ? 'CORRECT' : 'INCORRECT (click again to resubmit)');
+            if (!_correct) {
+                $('.content-1 .correct-answer').show();
+            } else {
+                $('.content-1 .correct-answer').hide();
+            }
+        });
+    })();
+</script>
+<hr />
+<div class="content content-2 content-sort">
+    <h1>Determine which ideas about the causes of the seasons are correct. Sort the list by category.</h1>
+    <div class="ideas">
+        <h3>Ideas</h3>
+        <ul>
+            <li data-id="1" data-correct="true">The Earth is slightly closer to the Sun in January than in June.</li>
+            <li data-id="2" data-correct="true">The angle at which the Sun's rays strike the Earth affect Earth's temperature.</li>
+            <li data-id="3" data-correct="false">As the Earth revolves around the Sun, the Southern Hemisphere is always tilted toward the Sun.</li>
+            <li data-id="4" data-correct="false">The distance between the Sun and the Earth determines the temperature of the Earth.</li>
+            <li data-id="5" data-correct="true">The angle of the Earth's tilt doesn't change as it revolves around the Sun.</li>
+            <li data-id="6" data-correct="false">The Sun's rays are most direct nearer the North and South Poles.</li>
+        </ul>
+    </div>
+    <div class="categories">
+        <div class="category correct-ideas">
+            <h3>Correct Ideas</h3>
+            <div data-correct="true" class="category-area correct-ideas-area"></div>
+        </div>
+        <div class="category incorrect-ideas">
+            <h3>Incorrect Ideas</h3>
+            <div data-correct="false" class="category-area incorrect-ideas-area"></div>
+        </div>
+    </div>
+    <div class="result">
+        <button class="submit">Submit</button>
+        <a href="img/seasons-classify-correct.png" target="_blank" class="correct-answer">See correct answer.</a>
+    </div>
+</div>
+<script>
+    (function () {
+        var mapping = {};
+
+        function correct() {
+            var _correct = true;
+            var count = 0;
+            for (var i in mapping) {
+                if (mapping.hasOwnProperty(i)) {
+                    count++;
+                    if (!mapping[i]) {
+                        _correct = false;
+                        break;
+                    }
+                }
+            }
+            return (count == 6) && _correct;
+        }
+
+        $('.content-2 .ideas li').draggable({
+            snap: '.content-2 .category-area',
+            snapMode: 'inner'
+        });
+
+        $('.content-2 .category-area').droppable({
+            accept: '.content-2 .ideas li',
+            drop: function (event, ui) {
+                mapping[$(ui.draggable).data('id')] = ($(this).data('correct') == $(ui.draggable).data('correct'));
+            },
+            out: function (event, ui) {
+                delete mapping[$(ui.draggable).data('id')];
+            }
+        });
+
+        $('.content-2 .correct-answer').hide();
+
+        $('.content-2 .submit').click(function () {
+            var _correct = correct();
+            $('.content-2 .submit').text(_correct ? 'CORRECT' : 'INCORRECT (click again to resubmit)');
+            if (!_correct) {
+                $('.content-2 .correct-answer').show();
+            } else {
+                $('.content-2 .correct-answer').hide();
+            }
+        });
+    })();
+</script>
+</body>
+</html>

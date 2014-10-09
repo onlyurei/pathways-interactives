@@ -1,0 +1,109 @@
+@import url(lib/jquery-ui-1.11.1.css);
+
+.content {
+	width: 960px;
+	margin: 0 auto;
+	padding: 0 20px;
+}
+
+h1 {
+	font-size: 18px;
+	text-align: center;
+}
+
+ul {
+	list-style-type: none;
+	-webkit-padding-start: 0;
+}
+
+li {
+	margin: 0;
+	padding: 0;
+}
+
+.result {
+	text-align: center;
+}
+
+.result {
+	margin: 15px 0;
+}
+
+.content-1 .earths,
+.content-1 .orbit {
+	display: inline-block;
+	position: relative;
+}
+
+.content-1 .earths {
+	z-index: 1;
+}
+
+.content-1 .orbit .position {
+	position: absolute;
+	background-color: #FFF;
+	width: 100px;
+	height: 110px;
+}
+
+.content-1 .orbit .position-1 {
+	left: 330px;
+	top: 105px;
+}
+
+.content-1 .orbit .position-2 {
+	left: 620px;
+	top: 245px;
+}
+
+.content-1 .orbit .position-3 {
+	left: 330px;
+	top: 390px;
+}
+
+.content-1 .orbit .position-4 {
+	left: 45px;
+	top: 245px;
+}
+
+.content-sort .ideas,
+.content-sort .categories,
+.content-sort .categories .category {
+	display: inline-block;
+	vertical-align: top;
+	text-align: center;
+}
+
+.content-sort .ideas {
+	width: 25%;
+}
+
+.content-sort .ideas li {
+	border-radius: 8px;
+	border-left: 4px solid #8BB04D;
+	border-right: 4px solid #8BB04D;
+	margin: 15px 0;
+	padding: 10px;
+}
+
+.content-sort.content-sort-no-border .ideas li {
+	border: none;
+	display: inline-block;
+	padding: 5px;
+	margin: 0;
+}
+
+.content-sort .categories {
+	width: 74%;
+}
+
+.content-sort .categories .category {
+	width: 49%;
+}
+
+.content-sort .categories .category-area {
+	border-radius: 20px;
+	border: 4px solid #000;
+	height: 480px;
+	margin: 0 20px;
+}

@@ -1,0 +1,22 @@
+@import url(lib/bootstrap-3.2.0.css);
+
+html, body {
+	height: 100%;
+	width: 925px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 10px 0;
+}
+
+svg {
+	height: 350px;
+}
+
+.table thead {
+	background-color: #333;
+	color: #FFF;
+}
+
+.vertical-align-middle {
+	vertical-align: middle !important;
+}
