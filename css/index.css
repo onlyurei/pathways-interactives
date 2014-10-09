@@ -1,8 +1,7 @@
 @import url(lib/bootstrap-3.2.0.css);
 
 html, body {
-	height: 100%;
-	width: 925px;
+	width: 960px;
 	margin-left: auto;
 	margin-right: auto;
 	padding: 10px 0;
