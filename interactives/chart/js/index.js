@@ -33,8 +33,8 @@ define(['json!data/earth-sun.json', 'nv', 'd3', 'knockout', 'sugar'], function (
     data.each(function (datum, index) {
 
         var div = document.createElement('div');
-        div.dataset.name = datum.name;
-        div.dataset.bind = "visible: chart() == '" + datum.name + "'";
+        div.setAttribute('data-name', datum.name);
+        div.setAttribute('data-bind', "visible: chart() == '" + datum.name + "'");
 
         var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
         svg.id = 'svg' + index;
